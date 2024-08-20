@@ -8,7 +8,7 @@
   - depthFirstForEach: recorre el árbol siguiendo el orden depth first (DFS) en cualquiera de sus variantes, según se indique por parámetro ("post-order", "pre-order", o "in-order"). Nota: si no se provee ningún parámetro, hará el recorrido "in-order" por defecto.
   - breadthFirstForEach: recorre el árbol siguiendo el orden breadth first (BFS)
 
-  El ábrol utilizado para hacer los tests se encuentra representado en la imagen bst.png dentro del directorio homework.
+  El árbol utilizado para hacer los tests se encuentra representado en la imagen bst.png dentro del directorio homework.
 */
 
 function BinarySearchTree(value) {
@@ -64,11 +64,14 @@ BinarySearchTree.prototype.depthFirstForEach = function (cb, order) {
       this.left && this.left.depthFirstForEach(cb, order);
       this.right && this.right.depthFirstForEach(cb, order);
       cb(this.value);
+      break;
+
     case "pre-order":
       cb(this.value);
       this.left && this.left.depthFirstForEach(cb, order);
       this.right && this.right.depthFirstForEach(cb, order);
       break;
+
     default:
       this.left && this.left.depthFirstForEach(cb, order);
       cb(this.value);
@@ -77,7 +80,14 @@ BinarySearchTree.prototype.depthFirstForEach = function (cb, order) {
   }
 };
 
-BinarySearchTree.prototype.breadthFirstForEach = function () {};
+BinarySearchTree.prototype.breadthFirstForEach = function (cb, pendientes) {
+  if (!pendientes) var pendientes = [this.value];
+  cb(this.value);
+  pendientes.shift();
+  this.left && pendientes.push(this.left);
+  this.right && pendientes.push(this.right);
+  pendientes.length && pendientes[0].breadthFirstForEach(cb, pendientes);
+};
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
