@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(232, 246, 255);
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  background-color: #626456;
+  font-family: "Lexend Deca", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 56px;
   display: flex;
   flex-direction: column;
@@ -12,9 +12,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: #428fbb;
+  background: #e0ff9a;
   height: 56px;
-  /* padding-left: 15px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,55 +21,69 @@ body {
 
 #header span {
   font-size: 24px;
-  color: white;
   padding-right: 15px;
+  color: #ff0;
+  text-shadow: 1px 1px #333, -1px 1px #333, -1px -1px #333, 1px -1px #333;
 }
 
 #header a {
   padding-left: 15px;
 }
 
-
 #container {
-  background-color: #428fbb;
+  background-color: #e0ff9a;
   box-shadow: 2px 2px 5px#000;
-  width: 50%;
-  min-width: 700px;
-  border-radius: 5px;
+  width: 40%;
+  min-width: 300px;
+  border-radius: 10px;
+  padding: 3%;
+  margin-top: 25px;
+}
+
+#container h1 {
+  color: #fe904a;
+  font-size: 35px;
+  text-shadow: 1px 1px #333, -1px 1px #333, -1px -1px #333, 1px -1px #333;
+  margin: 0;
+}
+
+#createdBy {
+  color: #333;
+  font-size: 20px;
 }
 
 #inputContainer {
   display: flex;
-  justify-content: center;
-  padding: 10px;
-  margin-bottom: 25px;
+  margin: 10px 0;
 }
 
 #toDoInput {
   outline: none;
-  width: 75%;
-  padding-left: 10px;
+  width: 100%;
   font-size: 20px;
-  border: none;
+  font-family: "Lexend Deca";
+  border: 1px solid #333;
   border-radius: 4px;
+  padding: 0 10px;
 }
 
 #addButton {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100px;
   margin-left: 10px;
   border-radius: 4px;
   cursor: pointer;
   height: 35px;
-  background: #0160A2;
-  color: #FFF;
-  font-size: 20px;
+  background: #fe904a;
+  color: #fff;
+  font-size: 18px;
+  border: 1px solid #333;
+  text-shadow: 1px 1px #333, -1px 1px #333, -1px -1px #333, 1px -1px #333;
+  padding: 0 10px;
 }
 
 #toDoContainer {
-  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -78,26 +91,77 @@ body {
 }
 
 .toDoShell {
-  width: 650px;
-  min-height: 50px;
+  min-height: 40px;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  background: #fff;
   margin-bottom: 10px;
   border-radius: 5px;
   font-size: 20px;
   padding: 5px;
+  border: 1px dashed #333;
+  text-transform: capitalize;
+  background-color: #eefdce;
 }
 
-.toDoShell span {
-  width: 90%;
-}
+.toDoText,
 .completeText {
-  color: lightgrey;
+  display: flex;
+  word-break: break-all;
+}
+
+.toDoShell input[type="checkbox"] {
+  margin: 0 15px;
+}
+
+.completeText {
+  color: #a9caab;
   text-decoration: line-through;
 }
 
-.completeCheckbox {
-  transform: scale(1.8);
+/* Hide the browser's default checkbox */
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  display: flex;
+  height: 20px;
+  min-width: 20px;
+  border: 2px solid #fe904a;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  display: none;
+}
+
+/* Show the checkmark when checked */
+input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmark:after {
+  width: 5px;
+  height: 10px;
+  border: solid #333;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkmark.checked {
+  border: 2px solid #0c0;
 }
