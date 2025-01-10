@@ -1,1 +1,32 @@
 // Código de Nav acá
+nav {
+  display: flex;
+  position: fixed;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  background-color: @nav-bg;
+  backdrop-filter: blur(3px);
+  color: @nav-font;
+  border: 1px solid @nav-border;
+
+  h1 {
+    width: 100vw;
+    font-size: 300%;
+    margin: 1rem 0;
+  }
+
+  #nav-items {
+    margin-bottom: 1rem;
+
+    .nav-item {
+      font-size: 1.6rem;
+      margin: 1rem;
+      text-decoration: none;
+      color: @main-font-color;
+      @media @phone {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

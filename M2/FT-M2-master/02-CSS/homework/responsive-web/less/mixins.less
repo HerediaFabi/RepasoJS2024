@@ -1,1 +1,15 @@
 // Mixins acá
+.border-radius(@radius: 15px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.stylized-button(@bg-color, @color) {
+  background-color: @bg-color;
+  color: @color;
+  width: fit-content;
+  padding: 13px 10px;
+  font-size: 1.6rem;
+  .border-radius(10px);
+}
