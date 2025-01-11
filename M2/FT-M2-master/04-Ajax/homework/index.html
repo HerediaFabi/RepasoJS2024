@@ -3,26 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <title>HomeWork Ajax</title>
 </head>
 <body>
-  <button id='boton'>Ver Amigos</button>
-  <ul id='lista'>
-  </ul>
-
-  <h2>Ver Amigos</h2>
-  <img src='https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif' />
-  <hr>
-  <input id='input'></input>
-  <button id='search'>Buscar</button>
-  <span id='amigo'></span>
-
-  <hr>
-  <input id='inputDelete'></input>
-  <button id='delete'>Delete</button>
-  <span id='success'></span>
+  <div class="mainContainer">
+    <h1>Info amigos</h1>
+    <div class="searchContainer">
+      <input id='input' placeholder='Amigo ID'></input>
+      <button id='search'>Buscar amigo</button>
+      <span id='amigo'></span>
+    </div>
+    <div class="deleteContainer">
+      <input id='inputDelete' placeholder='Amigo ID'></input>
+      <button id='delete'>Eliminar amigo</button>
+      <span id='success'></span>
+    </div>
+    <div class="listContainer">
+      <button id='boton'>Ver lista de amigos</button>
+      <ul id='lista'>
+      </ul>
+    </div>
+  </div>
   <script src="index.js"></script>
 </body>
 </html>
