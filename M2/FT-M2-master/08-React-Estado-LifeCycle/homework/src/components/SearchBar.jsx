@@ -1,16 +1,33 @@
 import React, { useState } from "react";
+import styles from "./SearchBar.module.css";
+export default function SearchBar({ onSearch }) {
+  // acá va tu código
+  const [city, setCity] = useState("");
+  function onChangeInput(e) {
+    setCity((city) => e.target.value);
+  }
 
-export default function SearchBar({onSearch}) {
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      onSearch("Cairns");
-    }}>
+    <form
+      class="d-flex"
+      role="search"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSearch(city);
+        setCity((city) => ""); //Resetear estado
+        e.target[0].value = ""; //Limpiar input
+      }}
+    >
       <input
-        type="text"
-        placeholder="Ciudad..."
+        class={`form-control me-2 bg-light ${styles.input}`}
+        type="search"
+        placeholder="Ingrese ciudad"
+        aria-label="Search"
+        onChange={onChangeInput}
       />
-      <input type="submit" value="Agregar" />
+      <button class={`btn btn-outline-success ${styles.button}`} type="submit">
+        Buscar
+      </button>
     </form>
   );
 }
